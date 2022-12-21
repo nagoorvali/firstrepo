@@ -1,0 +1,10 @@
+git commands
+============
+
+1. git init - it'll create empty repository
+2. git status - it'll show status of the checkins
+3. git add . - for moving to staging all the files replace . with file name for particular files checkin 
+4. git commit -m "first commit"
+5. git remote add origin <url>
+6. git remote -v
+7. git push origin master
