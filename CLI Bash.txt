@@ -1,0 +1,34 @@
+Create a Web App using CLI:
+
+Navigate to Bash: 
+
+1. Resource Group
+2. App Service plan
+3. App Service - portal 
+4. Deploy the source code into Appservice
+
+$ gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
+$ echo $gitrepo
+
+1. To Create a new Resource group from CLI
+az group create --name RG3 --location EastUS (or)
+az group create -n RG3 -l eastus
+
+2. To Create an App Service
+webapp=shwebapp$RANDOM
+echo $webapp
+az appservice plan create --name $webapp --resource-group RG3 --sku FREE
+OS - Windows/Linux - we can deploy all language apps
+
+3. To Create a Web App:
+az webapp create --name EvokeApp --resource-group RG3 --plan $webapp
+Free- 60 minutes 
+
+gitrepo=https://github.com/Azure-Samples/php-docs-hello-world
+$ echo $gitrepo
+
+4. To Deploy Application in Web App
+az webapp deployment source config -n $webapp -g RG3 --repo-url $gitrepo --branch master --manual-integration
+
+
+

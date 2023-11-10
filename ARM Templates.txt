@@ -1,0 +1,22 @@
+What are ARM Templates?
+
+ARM templates are a form of infrastructure as code, a concept where you define the infrastructure you need to be deployed. 
+You no longer need to click around the portal creating virtual machines or writing scripts to deploy a storage account. 
+Instead, the template defines the resources, and the Azure ARM management layer is responsible for creating the infrastructure.
+
+This concept is called declarative syntax. 
+Declarative syntax is where you state what resources you want to create without writing the sequence of commands to make it. 
+For example, you can easily create a script using the Azure CLI or Azure PowerShell to create a virtual machine. 
+However, you have to include lots of logic and error checking to handle any scenario.
+
+Creating a declarative template defines the environment’s end state, and Azure takes the template as input and creates the environment for you. 
+The ARM management layer will create a new resource if it doesn’t exist or modify an existing resource if the template is different.
+
+Microsoft has introduced a new infrastructure as code language called Azure Bicep. 
+
+Azure Bicep
+===========
+Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. 
+In a Bicep file, you define the infrastructure you want to deploy to Azure, 
+and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. 
+Your resources are deployed in a consistent manner.

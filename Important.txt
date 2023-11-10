@@ -1,0 +1,72 @@
+1. server name has to be modified
+kubectl config view --minify -o jsonpath={.clusters[0].cluster.server}
+
+2. Create a new service account
+kubectl create serviceaccount admin-sa
+
+3. set role to new sa
+kubectl create clusterrolebinding admin-sa --clusterrole=cluster-admin --serviceaccount=default:admin-sa
+(or)
+kubectl create clusterrolebinding serviceaccounts-cluster-admin \
+  --clusterrole=cluster-admin \
+  --group=system:serviceaccounts
+
+4.Generate secret for the new SA
+
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Secret
+metadata:
+  name: evokesecret
+  annotations:
+    kubernetes.io/service-account.name: admin-sa
+type: kubernetes.io/service-account-token
+EOF
+
+
+5. Get the secret object in json format 
+kubectl get secret/evokesecret -o json
+
+6. paste the json in secret in the service agent tab.
+
+
+https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
+
+http://localhost:7071/api/Function1?name=India
+
+
+
+
+https://evokefn1.azurewebsites.net/api/firsttrg?code=J4tqmjTf-6kmxE0bf-PiFbBbwDtLRt763qXm81n4FpFNAzFuwhQ5FA==
+
+https://learn.microsoft.com/en-us/previous-versions/azure/devops/server/install-tfs/run-upgrade-wizard?view=tfs-2013
+
+https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-tfs-vsts
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

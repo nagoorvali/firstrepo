@@ -1,0 +1,20 @@
+https://www.c-sharpcorner.com/article/using-azure-powershell-commands-to-create-an-app-service-web-app/
+
+#Defined the Web Application Name and location  
+$webappname="DemoWebAppSbeeh1"  
+$location="West Europe"  
+$AppServicePlan="DemoWebApps"  
+
+#Create a resource group.  
+New-AzureRmResourceGroup -Name DemoResourceGroup -Location $location  
+
+#Create an App Service plan in Free tier.  
+ New-AzureRmAppServicePlan -Name $AppServicePlan -Location $location -ResourceGroupName DemoResourceGroup -Tier Free  
+
+#Create a web app.   
+New-AzureRmWebApp -Name JareenaApp -Location $location -AppServicePlan $AppServicePlan -ResourceGroupName DemoResourceGroup  
+
+#Publish Web App  
+Publish-AzWebApp -ResourceGroupName DemoResourceGroup -Name $webappname -ArchivePath WebApplicationDemo.deps.zip  
+
+Remove-AzureRmResourceGroup -Name DemoResourceGroup -Force
